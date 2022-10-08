@@ -25,6 +25,4 @@ RSpec.describe Book do
   it "has a publication year" do
     expect(@book.publication_year).to eq("1960")
   end
-
-
 end
