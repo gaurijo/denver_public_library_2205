@@ -1,11 +1,9 @@
-class Library
-  attr_reader :name, :books, :authors, :author
+class Library < Author 
+  attr_reader :name, :books, :authors
   def initialize(name)
     @name = name
     @books = []
     @authors = []
-    @author = Author.new({first_name: "Charlotte",
-                          last_name: "Bronte"})
   end
 
   def add_author(author)
@@ -17,10 +15,9 @@ class Library
   end
 
   def publication_time_frame_for(author)
-
-    time_frame_hash = {}
-    @authors.each do |author|
-      require "pry"; binding.pry
-    end
+    author = Author.new({first_name: author.first_name,
+      last_name: author.last_name})
+    @books = author.books
+    @authors << author
   end
 end
