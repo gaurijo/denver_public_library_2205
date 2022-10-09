@@ -15,9 +15,6 @@ class Library < Author
   end
 
   def publication_time_frame_for(author)
-    author = Author.new({first_name: author.first_name,
-      last_name: author.last_name})
-    @books = author.books
-    @authors << author
+    {:start => author.books[0].publication_date, :end => author.books[-1].publication_date}
   end
 end
